@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:padding="16dip" >
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TO"
+                android:textColor="@color/blueBack" />
+
+            <Spinner
+                android:id="@+id/newmsgSpinnerType"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/to_array" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/newmsgTVName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Administator"
+                android:textColor="#000" />
+
+            <AutoCompleteTextView
+                android:id="@+id/newmsgAutoCompleteName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bgGrey"
+                android:entries="@array/to_array"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <ImageView
+                android:id="@+id/newmsgIVCross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/blue_cross"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Subject"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/newmsgETSubject"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bgGrey"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Message"
+        android:textColor="@color/blueBack" />
+
+    <EditText
+        android:id="@+id/newmsgETMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:background="@color/bgGrey"
+        android:entries="@array/to_array"
+        android:gravity="left|top"
+        android:padding="5dip"
+        android:textColor="@color/blueBack" />
+
+    <Button
+        android:id="@+id/newmsgBtSend"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/buttonback"
+        android:text="Send Message"
+        android:textColor="#fff" />
+
+</LinearLayout>

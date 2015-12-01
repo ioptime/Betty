@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/unreadTV"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/blueBack"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="Unread(0)"
+        android:textColor="#fff"
+        android:textSize="20dip" />
+
+    <TableLayout
+        android:id="@+id/inboxTopLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_below="@+id/unreadTV"
+        android:layout_margin="5dip"
+        android:layout_marginTop="20dip"
+        android:background="@color/blueBack"
+        android:gravity="center_horizontal"
+        android:stretchColumns="0,2" >
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:text="From"
+                android:textColor="#fff"
+                android:textSize="20dip" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="40dip"
+                android:background="#fff" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingLeft="5dip"
+                android:singleLine="true"
+                android:text="Subject"
+                android:textColor="#fff"
+                android:textSize="20dip" />
+        </TableRow>
+    </TableLayout>
+
+    <ListView
+        android:id="@+id/inboxList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inboxTopLayout"
+        android:background="@drawable/border"
+        android:divider="#ccc"
+        android:dividerHeight="10dip"
+        android:paddingTop="10dip" >
+    </ListView>
+
+    <ProgressBar
+        android:id="@+id/inboxProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/inboxIVNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dip"
+        android:src="@drawable/new_circle" />
+
+</RelativeLayout>

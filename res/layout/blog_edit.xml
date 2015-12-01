@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="16dip" >
+
+            <EditText
+                android:id="@+id/editblogEtTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextbg"
+                android:hint="Title"
+                android:padding="2dip"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/editblogEtIntro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/edittextbg"
+                android:hint="Intro text"
+                android:padding="2dip"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/editblogEtText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/edittextbg"
+                android:hint="Text"
+                android:padding="2dip"
+                android:textColor="#000" />
+
+            <Button
+                android:id="@+id/editblogBtUpdate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/button"
+                android:text="Update" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

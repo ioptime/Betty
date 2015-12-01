@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/topbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bar"
+        android:gravity="center"
+        android:text="Edit Profile"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dip"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/editETFName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/edittextbg"
+                android:hint="First Name"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/editETLName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/edittextbg"
+                android:hint="Last Name"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/editETTagLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextbg"
+                android:hint="Tag Line"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/editETEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextbg"
+                android:hint="Email"
+                android:textColor="#000" />
+
+            <Button
+                android:id="@+id/editBTSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/button"
+                android:text="Edit"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

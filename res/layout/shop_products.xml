@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/shopProductIVShopImage"
+            android:layout_width="200dip"
+            android:layout_height="200dip"
+            android:background="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/shopProductTVShopName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dip"
+                android:text="Shop Name"
+                android:textColor="#0f0" />
+
+            <TextView
+                android:id="@+id/shopProductTVShopFollowers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dip"
+                android:text="0 Followers"
+                android:textColor="#000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/shopProductsList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ccc"
+        android:divider="#ccc"
+        android:dividerHeight="10dip"
+        android:paddingTop="10dip" >
+    </ListView>
+
+</LinearLayout>

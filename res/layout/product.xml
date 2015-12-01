@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:background="@color/bgGrey"
+        android:stretchColumns="0" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/pdETSearch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000" />
+
+            <Button
+                android:id="@+id/pdBtSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@color/blueBack"
+                android:text="Search"
+                android:textColor="#fff" />
+        </TableRow>
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ListView
+            android:id="@+id/productList"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ccc"
+            android:divider="#ccc"
+            android:dividerHeight="10dip"
+            android:paddingTop="10dip" >
+        </ListView>
+
+        <ProgressBar
+            android:id="@+id/productProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

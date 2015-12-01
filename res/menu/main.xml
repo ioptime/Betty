@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ioptime.betty.MainActivity" >
+
+    <item
+        android:id="@+id/action_cart"
+        android:actionLayout="@layout/action_bar_count_icon"
+        android:icon="@drawable/cart"
+        android:showAsAction="always"
+        android:title="0"/>
+
+</menu>

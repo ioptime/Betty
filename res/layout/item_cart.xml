@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Definig a container for you List Item -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cartList"
+    android:layout_width="fill_parent"
+    android:layout_height="200dip"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:background="#fff"
+    android:orientation="horizontal" >
+
+    <!-- Defining where should text be placed. You set you text color here -->
+
+    <ImageView
+        android:id="@+id/cartImage"
+        android:layout_width="200dip"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="20dip"
+        android:src="@drawable/ic_launcher"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/cartListName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="4dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center"
+            android:text="ProductName"
+            android:textColor="#000"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/cartListPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cartListName"
+            android:layout_margin="4dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center"
+            android:text="Price"
+            android:textColor="#f00"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/cartListQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cartListPrice"
+            android:layout_margin="4dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center"
+            android:text="x 0"
+            android:textColor="#f00"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/cartListTPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cartListPrice"
+            android:layout_margin="4dip"
+            android:layout_marginTop="10dip"
+            android:layout_toRightOf="@+id/cartListQty"
+            android:gravity="center"
+            android:text="= 0"
+            android:textColor="#f00"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/cartListRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cartListTPrice"
+            android:layout_margin="4dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/button"
+            android:gravity="center"
+            android:text="Remove Item"
+            android:textColor="#fff"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/cartListStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="4dip"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center"
+            android:text="StoreName"
+            android:textColor="#0f0"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>
