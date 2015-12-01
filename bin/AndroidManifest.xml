@@ -22,15 +22,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Login" >
+        <activity android:name=".Login" >
         </activity>
-        <activity android:name="MainActivity" >
+        <activity android:name=".MainActivity" >
         </activity>
-        <activity android:name="SignUp" >
+        <activity android:name=".SignUp" >
         </activity>
-        <activity android:name="MainMenu" >
+        <activity android:name=".MainMenu" >
         </activity>
         <activity android:name="com.iopitme.betty.vendor.MainMenuVendor" >
+        </activity>
+        <activity
+            android:name="com.iopitme.betty.vendor.AddNewProductFragment"
+            android:label="@string/title_activity_add_new_product_fragment" >
+        </activity>
+        <activity android:name="com.ioptime.selectimages.CustomGalleryActivity" >
+            <intent-filter>
+                <action android:name="luminous.ACTION_PICK" />
+                <action android:name="luminous.ACTION_MULTIPLE_PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

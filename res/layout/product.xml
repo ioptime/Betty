@@ -32,6 +32,19 @@
         </TableRow>
     </TableLayout>
 
+    <Button
+        android:id="@+id/pdBtAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:background="@color/blueBack"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Add New Product"
+        android:textSize="20dp"
+        android:visibility="gone" />
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >

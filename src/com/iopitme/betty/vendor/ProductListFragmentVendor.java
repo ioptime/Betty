@@ -46,6 +46,8 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 
 		View rootView = inflater.inflate(R.layout.product, container, false);
 		listViewProducts = (ListView) rootView.findViewById(R.id.productList);
+		Button btnAddpd = (Button) rootView.findViewById(R.id.pdBtAdd);
+		btnAddpd.setVisibility(View.VISIBLE);
 		progressDialog = (ProgressBar) rootView
 				.findViewById(R.id.productProgressBar);
 
@@ -99,7 +101,20 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 
 			}
 		});
+		btnAddpd.setOnClickListener(new OnClickListener() {
 
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				AddNewProductFragment prodFrag = new AddNewProductFragment();
+				Bundle bundle = new Bundle();
+				bundle.putInt("position", 0);
+				prodFrag.setArguments(bundle);
+				getFragmentManager().beginTransaction()
+						.replace(R.id.frame_container, prodFrag)
+						.addToBackStack(null).commit();
+			}
+		});
 		return rootView;
 	}
 
@@ -181,7 +196,15 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 							@Override
 							public void onItemClick(AdapterView<?> parent,
 									View view, int position, long id) {
-								ProductDetailFragmentVendor prodFrag = new ProductDetailFragmentVendor();
+//								ProductDetailFragmentVendor prodFrag = new ProductDetailFragmentVendor();
+//								Bundle bundle = new Bundle();
+//								bundle.putInt("position", position);
+//								prodFrag.setArguments(bundle);
+//								getFragmentManager()
+//										.beginTransaction()
+//										.replace(R.id.frame_container, prodFrag)
+//										.addToBackStack(null).commit();
+								AddNewProductFragment prodFrag = new AddNewProductFragment();
 								Bundle bundle = new Bundle();
 								bundle.putInt("position", position);
 								prodFrag.setArguments(bundle);

@@ -41,4 +41,6 @@
         <item>@drawable/ic_launcher</item>
     </array>
 
+    <string name="title_activity_add_new_product_fragment">Add New Product</string>
+
 </resources>

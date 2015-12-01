@@ -1,0 +1,158 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:fillViewport="true"
+    tools:context="com.iopitme.betty.vendor.AddNewProductFragment" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#fff"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#fff"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/addPd_CatET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/bgGrey"
+                android:hint="category"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <EditText
+                android:id="@+id/addPd_NameET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgGrey"
+                android:hint="name"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <EditText
+                android:id="@+id/addPd_ModelET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgGrey"
+                android:hint="model"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <EditText
+                android:id="@+id/addPd_PriceET"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgGrey"
+                android:hint="price"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <EditText
+                android:id="@+id/addPd_QuantityET"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgGrey"
+                android:hint="Quantity"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <EditText
+                android:id="@+id/addPd_ManfET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgGrey"
+                android:hint="manufecturer"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <EditText
+                android:id="@+id/addPd_DecET"
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgGrey"
+                android:gravity="top|left"
+                android:hint="Description"
+                android:inputType="none"
+                android:padding="5dip"
+                android:singleLine="true"
+                android:textColor="@color/blueBack" />
+
+            <Button
+                android:id="@+id/takePicBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Select Pictures"
+                android:textStyle="bold" />
+
+            <ViewSwitcher
+                android:id="@+id/viewSwitcher"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1" >
+
+                <com.iopitme.betty.vendor.ExpandableHeightGridView
+                    android:id="@+id/gridGallery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginBottom="-10dp"
+                    android:layout_marginLeft="-10dp"
+                    android:layout_marginRight="-10dp"
+                    android:layout_marginTop="-10dp"
+                    android:horizontalSpacing="-15dp"
+                    android:numColumns="3"
+                    android:padding="0dp"
+                    android:verticalSpacing="-15dp"
+                    tools:listitem="@layout/gallery_item" />
+
+                <ImageView
+                    android:id="@+id/imgSinglePick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/no_media" />
+            </ViewSwitcher>
+
+            <Button
+                android:id="@+id/saveBtnVendor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Save"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
