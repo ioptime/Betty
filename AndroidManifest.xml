@@ -5,8 +5,16 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -28,13 +36,21 @@
         </activity>
         <activity android:name=".SignUp" >
         </activity>
-        <activity android:name=".MainMenu" >
+        <activity
+            android:name=".MainMenu"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="com.iopitme.betty.vendor.MainMenuVendor" >
+        <activity
+            android:name="com.iopitme.betty.vendor.MainMenuVendor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.iopitme.betty.vendor.AddNewProductFragment"
-            android:label="@string/title_activity_add_new_product_fragment" >
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_add_new_product_fragment"
+            android:screenOrientation="portrait" >
         </activity>
         <activity android:name="com.ioptime.selectimages.CustomGalleryActivity" >
             <intent-filter>
@@ -44,13 +60,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ProductReportsFragment"
+            android:label="@string/title_activity_product_reports_fragment" >
+        </activity>
     </application>
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

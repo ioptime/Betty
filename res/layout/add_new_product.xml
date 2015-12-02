@@ -58,7 +58,7 @@
 
             <EditText
                 android:id="@+id/addPd_PriceET"
-                android:layout_width="150dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/bgGrey"
@@ -70,7 +70,7 @@
 
             <EditText
                 android:id="@+id/addPd_QuantityET"
-                android:layout_width="120dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/bgGrey"
@@ -110,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:background="@color/blueBack"
                 android:text="Select Pictures"
                 android:textStyle="bold" />
 
@@ -142,7 +143,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/no_media" />
+                    android:cropToPadding="true"
+                    android:scaleType="centerCrop" />
             </ViewSwitcher>
 
             <Button
@@ -150,6 +152,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:padding="7dp"
+                android:background="@color/blueBack"
                 android:text="Save"
                 android:textStyle="bold" />
         </LinearLayout>

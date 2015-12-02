@@ -1,7 +1,7 @@
 package com.iopitme.betty.vendor;
 
 import java.util.ArrayList;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -21,8 +21,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.ioptime.adapters.NavDrawerListAdapter;
+import com.ioptime.betty.ProductReportsFragment;
 import com.ioptime.betty.R;
 import com.ioptime.betty.model.NavDrawerItem;
 
@@ -45,6 +45,7 @@ public class MainMenuVendor extends FragmentActivity {
 	private NavDrawerListAdapter adapter;
 	TextView tvCart;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,7 +53,8 @@ public class MainMenuVendor extends FragmentActivity {
 		mTitle = mDrawerTitle = getTitle();
 
 		// load slide menu items
-		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
+		navMenuTitles = getResources().getStringArray(
+				R.array.nav_drawer_items_vendor);
 
 		// nav drawer icons from resources
 		navMenuIcons = getResources()
@@ -67,10 +69,12 @@ public class MainMenuVendor extends FragmentActivity {
 		// Products
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
 				.getResourceId(0, -1)));
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
-				.getResourceId(4, -1)));
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
-				.getResourceId(5, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(1, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+				.getResourceId(2, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(3, -1)));
 
 		// Recycle the typed array
 		navMenuIcons.recycle();
@@ -200,11 +204,15 @@ public class MainMenuVendor extends FragmentActivity {
 		// fragment = new ShopFragment();
 		// break;
 		case 1:
-			fragment = new ProfileVendorFragment();
+			fragment = new ProductReportsFragment();
 			break;
 		case 2:
+			fragment = new ProfileVendorFragment();
+			break;
+		case 3:
 			fragment = new MessagesVendorFragment();
 			break;
+
 		//
 		// case 6:
 		// fragment = new ContactFragment();

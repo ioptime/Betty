@@ -27,8 +27,14 @@
         <item>Profile</item>
         <item>Messages</item>
         <item>Contact Us</item>
+        <item>Product Reports</item>
     </string-array>
-
+    <string-array name="nav_drawer_items_vendor">
+        <item>Products</item>
+        <item>Product Reports</item>
+        <item>Profile</item>
+        <item>Messages</item>
+    </string-array>
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
@@ -39,8 +45,10 @@
         <item>@drawable/ic_launcher</item>
         <item>@drawable/ic_launcher</item>
         <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
     </array>
 
     <string name="title_activity_add_new_product_fragment">Add New Product</string>
+    <string name="title_activity_product_reports_fragment">ProductReportsFragment</string>
 
 </resources>

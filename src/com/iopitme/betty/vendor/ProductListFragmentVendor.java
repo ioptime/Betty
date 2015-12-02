@@ -109,6 +109,7 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 				AddNewProductFragment prodFrag = new AddNewProductFragment();
 				Bundle bundle = new Bundle();
 				bundle.putInt("position", 0);
+				bundle.putInt("switch", 0);
 				prodFrag.setArguments(bundle);
 				getFragmentManager().beginTransaction()
 						.replace(R.id.frame_container, prodFrag)
@@ -207,6 +208,7 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 								AddNewProductFragment prodFrag = new AddNewProductFragment();
 								Bundle bundle = new Bundle();
 								bundle.putInt("position", position);
+								bundle.putInt("switch", 1);
 								prodFrag.setArguments(bundle);
 								getFragmentManager()
 										.beginTransaction()

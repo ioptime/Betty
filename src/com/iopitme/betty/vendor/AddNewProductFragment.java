@@ -1,5 +1,7 @@
 package com.iopitme.betty.vendor;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -8,7 +10,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +25,7 @@ import android.widget.ViewSwitcher;
 
 import com.ioptime.betty.Appconstants;
 import com.ioptime.betty.R;
+import com.ioptime.betty.model.Product;
 import com.ioptime.extendablelibrary.IoptimeFragment;
 import com.ioptime.selectimages.Action;
 import com.ioptime.selectimages.CustomGallery;
@@ -56,25 +61,24 @@ public class AddNewProductFragment extends IoptimeFragment {
 		manET = (EditText) rootView.findViewById(R.id.addPd_ManfET);
 		priceET = (EditText) rootView.findViewById(R.id.addPd_PriceET);
 		decET = (EditText) rootView.findViewById(R.id.addPd_DecET);
-		
-			grid = (ExpandableHeightGridView) rootView
-					.findViewById(R.id.gridGallery);
-			if (getArguments().getInt("position") != 0) {
-				position = getArguments().getInt("position");
-			nameET.setText(Appconstants.productsList.get(position).getName());
-			modelET.setText(Appconstants.productsList.get(position).getModel());
-			priceET.setText(""
-					+ Appconstants.productsList.get(position).getPrice());
-			decET.setText(Appconstants.productsList.get(position)
-					.getDescription());
-			manET.setText(Appconstants.productsList.get(position)
-					.getStoreName());
-		}
-		// nameET.setText(Appconstants.productsList.get(position).getName());
-		if (grid != null)
-			grid.setExpanded(true);
+
+		grid = (ExpandableHeightGridView) rootView
+				.findViewById(R.id.gridGallery);
+		grid.setExpanded(true);
 		initImageLoader();
 		init();
+		if (getArguments().getInt("switch") != 0) {
+			position = getArguments().getInt("position");
+			Product product = Appconstants.productsList.get(position);
+			imageLoader.displayImage(product.getImage(), imgSinglePick);
+			nameET.setText(product.getName());
+			modelET.setText(product.getModel());
+			priceET.setText("" + product.getPrice());
+			decET.setText(product.getDescription());
+			manET.setText(product.getStoreName());
+		}
+		// nameET.setText(Appconstants.productsList.get(position).getName());
+
 		btnSave.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -111,7 +115,6 @@ public class AddNewProductFragment extends IoptimeFragment {
 		viewSwitcher = (ViewSwitcher) rootView.findViewById(R.id.viewSwitcher);
 		viewSwitcher.setDisplayedChild(1);
 		imgSinglePick = (ImageView) rootView.findViewById(R.id.imgSinglePick);
-		imgSinglePick.setVisibility(View.GONE);
 		takePicBtn = (Button) rootView.findViewById(R.id.takePicBtn);
 		takePicBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -127,18 +130,37 @@ public class AddNewProductFragment extends IoptimeFragment {
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		Log.d("activityresult", requestCode + "-");
+		if (requestCode == 2 && resultCode == Activity.RESULT_OK) {
+			try {
+				// get the cropped bitmap
+				Bitmap bitmap = (Bitmap) data.getExtras().get("data");
 
-		if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
-			// adapter.clear();
-			imgSinglePick.setVisibility(View.VISIBLE);
-			adapter.clear();
+				String file_path = Environment.getExternalStorageDirectory()
+						.getAbsolutePath() + "/BeityMall";
+				File dir = new File(file_path);
+				if (!dir.exists())
+					dir.mkdirs();
 
-			viewSwitcher.setDisplayedChild(1);
-			String single_path = data.getStringExtra("single_path");
-			imageLoader.displayImage("file://" + single_path, imgSinglePick);
+				File fileImage = new File(dir, "temp"
+						+ System.currentTimeMillis() + ".jpeg");
+
+				FileOutputStream fOut;
+
+				fOut = new FileOutputStream(fileImage);
+				bitmap.compress(Bitmap.CompressFormat.JPEG, 50, fOut);
+
+				bitmap = Bitmap.createScaledBitmap(bitmap, 640, 640, true);
+				imgSinglePick.setImageBitmap(bitmap);
+				fOut.flush();
+				fOut.close();
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		} else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
-			imgSinglePick.setVisibility(View.GONE);
 			String[] all_path = data.getStringArrayExtra("all_path");
 
 			ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
@@ -170,10 +192,21 @@ public class AddNewProductFragment extends IoptimeFragment {
 		alertDialogBuilder.setPositiveButton("Camera",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						Intent i = new Intent(Action.ACTION_PICK);
-						startActivityForResult(i, 100);
+						Intent cameraIntent;
 
-						Log.d("HOuse", "id=" + id);
+						String BX1 = android.os.Build.MANUFACTURER;
+
+						if (BX1.equalsIgnoreCase("samsung")) {
+							cameraIntent = new Intent(
+									MediaStore.ACTION_IMAGE_CAPTURE);
+							startActivityForResult(cameraIntent, 2);
+
+						} else {
+							cameraIntent = new Intent(
+									android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+							startActivityForResult(cameraIntent, 2);
+						}
+
 					}
 				});
 		// set negative button: No message
