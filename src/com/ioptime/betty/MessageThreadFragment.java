@@ -198,6 +198,8 @@ public class MessageThreadFragment extends IoptimeFragment {
 						@Override
 						public void onItemClick(AdapterView<?> parent,
 								View view, int position, long id) {
+							new ReadOrUnreadBTTask(arrayThread.get(position)
+									.getMessage_id()).execute();
 							// MessageThreadFragment messageFrag = new
 							// MessageThreadFragment();
 							// Bundle bundle = new Bundle();
@@ -273,4 +275,28 @@ public class MessageThreadFragment extends IoptimeFragment {
 		}
 	}
 
+	private class ReadOrUnreadBTTask extends AsyncTask<Void, Void, Void> {
+		int msg_id;
+
+		public ReadOrUnreadBTTask(int msg_id) {
+			// TODO Auto-generated constructor stub
+			this.msg_id = msg_id;
+		}
+
+		@Override
+		protected Void doInBackground(Void... arg0) {
+			// TODO Auto-generated method stub
+			ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("message_id", "" + msg_id));//
+			String result = getJSONfromURL(Appconstants.Server
+					+ "message_read.php", params, 0);
+			if (result.equalsIgnoreCase("") | result.contains("empty")
+					| result.contains("err")) {
+				// not valid
+			} else {
+			}
+			Log.d("result Message", "--" + result);
+			return null;
+		}
+	}
 }

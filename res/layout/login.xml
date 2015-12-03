@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:checked="true"
-        android:textOff="Vendor"
-        android:textOn="Customer" />
+        android:textOff="Customer"
+        android:textOn="Vendor" />
 
     <EditText
         android:id="@+id/loginETEmail"

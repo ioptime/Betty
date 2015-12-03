@@ -24,7 +24,7 @@ public class Appconstants {
 	public static ArrayList<Blog> blogArray = new ArrayList<Blog>();
 	public static User user = new User();
 	public static Vendor vendor = new Vendor();
-	public static boolean isVendor = true;
+	public static boolean isVendor = false;
 	public static String[] allPath;
 
 	public static final String TAB_Product = ShopFollowedFragment.class

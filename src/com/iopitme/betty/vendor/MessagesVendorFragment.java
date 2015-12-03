@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
@@ -21,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.ioptime.adapters.MessageInboxAdapter;
 import com.ioptime.betty.Appconstants;
@@ -38,6 +40,8 @@ public class MessagesVendorFragment extends IoptimeFragment {
 	ArrayList<Message> inboxMessageArray = new ArrayList<Message>();
 	MessageInboxAdapter messageAdapter;
 	ListView listInbox;
+	TextView unReadMsgs;
+	String unreadMsgs;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +50,8 @@ public class MessagesVendorFragment extends IoptimeFragment {
 		progressBar = (ProgressBar) rootView
 				.findViewById(R.id.inboxProgressBar);
 		inboxIVNew = (ImageView) rootView.findViewById(R.id.inboxIVNew);
+		unReadMsgs = (TextView) rootView.findViewById(R.id.unreadTV);
+		new UnreadBTTask().execute();
 		inboxIVNew.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -193,6 +199,45 @@ public class MessagesVendorFragment extends IoptimeFragment {
 							.addToBackStack(null).commit();
 				}
 			});
+		}
+	}
+
+	private class UnreadBTTask extends AsyncTask<Void, Void, String> {
+
+		@Override
+		protected String doInBackground(Void... arg0) {
+			// TODO Auto-generated method stub
+			ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("reciever_id", ""
+					+ Appconstants.vendor.getUser_id()));//
+			String result = getJSONfromURL(Appconstants.Server
+					+ "number_messages_unread.php", params, 0);
+			if (result.equalsIgnoreCase("") | result.contains("empty")
+					| result.contains("err")) {
+				// not valid
+			} else {
+				JSONArray jArray;
+				try {
+					jArray = new JSONArray(result);
+					inboxMessageArray = new ArrayList<Message>();
+					for (int i = 0; i < jArray.length(); i++) {
+						JSONObject json_data = jArray.getJSONObject(i);
+						unreadMsgs = json_data.getString("unread_messages");
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+			Log.d("result Message", "--" + result);
+			return result;
+		}
+
+		@Override
+		protected void onPostExecute(String params) {
+			unReadMsgs.setText(unReadMsgs.getText() + "(" + unreadMsgs
+					+ ")".trim());
 		}
 	}
 

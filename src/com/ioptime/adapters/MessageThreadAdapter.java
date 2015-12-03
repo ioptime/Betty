@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -61,7 +61,10 @@ public class MessageThreadAdapter extends BaseAdapter {
 				.findViewById(R.id.threadTVMessageDate);
 		TextView textTime = (TextView) vi
 				.findViewById(R.id.threadTVMessageTime);
+		ImageView IVlogo = (ImageView) vi
+				.findViewById(R.id.IVLogo);
 		LinearLayout llMain = (LinearLayout) vi.findViewById(R.id.threadLLMain);
+		LinearLayout ll = (LinearLayout) vi.findViewById(R.id.threadLL);
 		textMessage.setText(messageArray.get(position).getContent());
 		textHeading.setText(messageArray.get(position).getMessage_subject());
 		textDate.setText(messageArray.get(position).getMessage_created_date());
@@ -70,19 +73,21 @@ public class MessageThreadAdapter extends BaseAdapter {
 		if (Integer.parseInt(messageArray.get(position)
 				.getMessage_customer_id()) == Appconstants.getUserID(activity)) {
 			// this message is sent from our side
-			llMain.setBackground(null);
+			IVlogo.setImageResource(R.drawable.person1);
+			ll.setBackground(null);
 			// llMain.setBackgroundColor(Color.BLUE);
 			llMain.setBackground(activity.getResources().getDrawable(
 					R.drawable.balloon_incoming_normal));
-			llMain.setGravity(Gravity.LEFT);
+			ll.setGravity(Gravity.LEFT);
 		} else if (Integer.parseInt(messageArray.get(position)
 				.getMessage_customer_id()) != Appconstants.getUserID(activity)) {
+			IVlogo.setImageResource(R.drawable.person2);
 			// this message is recieved
-			llMain.setBackground(null);
+			ll.setBackground(null);
 			// llMain.setBackgroundColor(Color.RED);
 			llMain.setBackground(activity.getResources().getDrawable(
 					R.drawable.balloon_outgoing_normal));
-			llMain.setGravity(Gravity.RIGHT);
+			ll.setGravity(Gravity.RIGHT);
 		}
 		// textAuthor.setText("" + blogArray.get(position).getIntro_text());
 		// imageLoader.DisplayImage(blogArray.get(position).getImage(),
