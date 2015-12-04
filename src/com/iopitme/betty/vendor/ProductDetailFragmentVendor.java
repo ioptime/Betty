@@ -129,7 +129,7 @@ public class ProductDetailFragmentVendor extends IoptimeFragment {
 				JSONArray jArray;
 				try {
 					commentArray = new ArrayList<Comment>();
-					;
+
 					jArray = new JSONArray(result);
 
 					for (int i = 0; i < jArray.length(); i++) {

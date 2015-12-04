@@ -110,7 +110,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
                 android:background="@color/blueBack"
+                android:padding="5dp"
                 android:text="Select Pictures"
                 android:textStyle="bold" />
 
@@ -153,8 +155,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:padding="7dp"
                 android:background="@color/blueBack"
+                android:padding="7dp"
                 android:text="Save"
                 android:textStyle="bold" />
         </LinearLayout>

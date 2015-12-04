@@ -75,7 +75,9 @@ public class AddNewProductFragment extends IoptimeFragment {
 			modelET.setText(product.getModel());
 			priceET.setText("" + product.getPrice());
 			decET.setText(product.getDescription());
-			manET.setText(product.getStoreName());
+			manET.setText(product.getManufacturer());
+			catET.setText(product.getCategory());
+			QuantityET.setText(product.getQuantity() + "");
 		}
 		// nameET.setText(Appconstants.productsList.get(position).getName());
 

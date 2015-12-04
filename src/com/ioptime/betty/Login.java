@@ -224,7 +224,8 @@ public class Login extends IoptimeActivity {
 										.getString("lastname").trim(),
 								json_data.getString("email").trim(), json_data
 										.getString("telephone").trim(),
-								json_data.getString("topic").trim());
+								json_data.getString("topic").trim(), json_data
+										.getString("vendor_image").trim());
 
 					}
 

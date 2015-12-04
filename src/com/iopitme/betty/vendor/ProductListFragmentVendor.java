@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -20,10 +22,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.image.loader.ImageLoader;
 import com.ioptime.betty.Appconstants;
 import com.ioptime.betty.R;
 import com.ioptime.betty.model.Product;
@@ -36,6 +42,10 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 	Button pdBtSearch;
 	ListView listViewProducts;
 	ProductAdapterVendors productAdapter;
+	ImageView StoreLogoIV;
+	ImageLoader imageloader;
+	String VenderFollowers;
+	TextView vendorFollTV;
 
 	public ProductListFragmentVendor() {
 	}
@@ -47,10 +57,25 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 		View rootView = inflater.inflate(R.layout.product, container, false);
 		listViewProducts = (ListView) rootView.findViewById(R.id.productList);
 		Button btnAddpd = (Button) rootView.findViewById(R.id.pdBtAdd);
+		LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.ll);
+		TextView StoreDecTV = (TextView) rootView
+				.findViewById(R.id.StoreDescriptionTV);
+		vendorFollTV = (TextView) rootView.findViewById(R.id.vendorFollTV);
+		StoreLogoIV = (ImageView) rootView.findViewById(R.id.IVStoreLogo);
 		btnAddpd.setVisibility(View.VISIBLE);
+		ll.setVisibility(View.VISIBLE);
 		progressDialog = (ProgressBar) rootView
 				.findViewById(R.id.productProgressBar);
-
+		// / Setting logo
+		imageloader = new ImageLoader(getActivity(), R.drawable.store_logo);
+		imageloader.DisplayImage("http://sandbox.baitymall.com/image/"
+				+ Appconstants.vendor.getLogoURl(), StoreLogoIV,
+				ImageLoader.NORMAL);
+		// Set Vendor Description /
+		if (!Appconstants.vendor.getTopic().equalsIgnoreCase(""))
+			StoreDecTV.setText(Appconstants.vendor.getTopic());
+		// Set Followers
+		new VendorFollowersBTTask().execute();
 		if (Appconstants.productsList.size() == 0) {
 			Log.d("pop", "size-" + Appconstants.productsList.size());
 			new ProductListBT().execute();
@@ -144,11 +169,11 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 					Appconstants.productsList = new ArrayList<Product>();
 					for (int i = 0; i < jArray.length(); i++) {
 						JSONObject json_data = jArray.getJSONObject(i);
-						Appconstants.productsList.add(new Product(Integer
-								.parseInt(json_data.getString("product_id")
-										.trim()), json_data.getString("model")
-								.trim(),
-								json_data.getString("location").trim(),
+
+						Product p = new Product(Integer.parseInt(json_data
+								.getString("product_id").trim()), json_data
+								.getString("model").trim(), json_data
+								.getString("location").trim(),
 								Appconstants.ImageUrl
 										+ json_data.getString("image").trim(),
 								json_data.getString("date_available").trim(),
@@ -160,10 +185,14 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 								Integer.parseInt(json_data
 										.getString("store_id").trim()),
 								json_data.getString("store_name").trim(),
-								json_data.getString("url").trim(), Float
-										.parseFloat(json_data
-												.getString("price").trim()),
-								false));
+								json_data.getString("url").trim(),
+								Float.parseFloat(json_data.getString("price")
+										.trim()), false);
+						p.setCategory(json_data.getString("category_name"));
+						p.setManufacturer(json_data
+								.getString("manufacturer_name"));
+						p.setQuantity(json_data.getInt("product_quanitity"));
+						Appconstants.productsList.add(p);
 
 					}
 
@@ -197,14 +226,15 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 							@Override
 							public void onItemClick(AdapterView<?> parent,
 									View view, int position, long id) {
-//								ProductDetailFragmentVendor prodFrag = new ProductDetailFragmentVendor();
-//								Bundle bundle = new Bundle();
-//								bundle.putInt("position", position);
-//								prodFrag.setArguments(bundle);
-//								getFragmentManager()
-//										.beginTransaction()
-//										.replace(R.id.frame_container, prodFrag)
-//										.addToBackStack(null).commit();
+								// ProductDetailFragmentVendor prodFrag = new
+								// ProductDetailFragmentVendor();
+								// Bundle bundle = new Bundle();
+								// bundle.putInt("position", position);
+								// prodFrag.setArguments(bundle);
+								// getFragmentManager()
+								// .beginTransaction()
+								// .replace(R.id.frame_container, prodFrag)
+								// .addToBackStack(null).commit();
 								AddNewProductFragment prodFrag = new AddNewProductFragment();
 								Bundle bundle = new Bundle();
 								bundle.putInt("position", position);
@@ -305,6 +335,44 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 		}
 	}
 
+	private class VendorFollowersBTTask extends AsyncTask<Void, Void, String> {
+
+		@Override
+		protected String doInBackground(Void... arg0) {
+			// TODO Auto-generated method stub
+			ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("user_id", ""
+					+ Appconstants.vendor.getUser_id()));//
+			String result = getJSONfromURL(Appconstants.Server
+					+ "store_followers_vendor.php", params, 0);
+			if (result.equalsIgnoreCase("") | result.contains("empty")
+					| result.contains("err")) {
+				// not valid
+			} else {
+				JSONArray jArray;
+				try {
+					jArray = new JSONArray(result);
+					for (int i = 0; i < jArray.length(); i++) {
+						JSONObject json_data = jArray.getJSONObject(i);
+						VenderFollowers = json_data
+								.getString("num_store_followers");
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+			Log.d("result Message", "--" + result);
+			return result;
+		}
+
+		@Override
+		protected void onPostExecute(String params) {
+			vendorFollTV.setText(VenderFollowers);
+		}
+	}
+
 	// private class GetWishListBTTask extends AsyncTask<Void, Void, Void> {
 	// int customer_id;
 	//
@@ -380,5 +448,8 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 	// }
 	// }
 	// }
-
+	public void onBackPressed() {
+		FragmentManager fm = getActivity().getSupportFragmentManager();
+		fm.popBackStack();
+	}
 }

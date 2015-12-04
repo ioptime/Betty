@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -193,6 +194,7 @@ public class MessagesVendorFragment extends IoptimeFragment {
 					bundle.putString("reciever_id",
 							inboxMessageArray.get(position)
 									.getMessage_customer_id());
+					bundle.putInt("count", 0);
 					messageFrag.setArguments(bundle);
 					getFragmentManager().beginTransaction()
 							.replace(R.id.frame_container, messageFrag)
@@ -240,5 +242,10 @@ public class MessagesVendorFragment extends IoptimeFragment {
 					+ ")".trim());
 		}
 	}
-
+	@Override
+	public void onBackPressed()
+	{
+	    FragmentManager fm = getActivity().getSupportFragmentManager();
+	    fm.popBackStack();
+	}
 }

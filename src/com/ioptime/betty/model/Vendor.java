@@ -7,12 +7,21 @@ public class Vendor {
 	String email;
 	String telephone;
 	String topic;
+	String logoURl;
+
+	public String getLogoURl() {
+		return logoURl;
+	}
+
+	public void setLogoURl(String logoURl) {
+		this.logoURl = logoURl;
+	}
 
 	public Vendor() {
 	}
 
 	public Vendor(int user_id, String firstname, String lastname, String email,
-			String telephone, String topic) {
+			String telephone, String topic, String logoURl) {
 		super();
 		this.user_id = user_id;
 		this.firstname = firstname;
@@ -20,6 +29,7 @@ public class Vendor {
 		this.email = email;
 		this.telephone = telephone;
 		this.topic = topic;
+		this.logoURl = logoURl;
 
 	}
 

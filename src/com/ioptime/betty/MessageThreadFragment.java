@@ -36,7 +36,7 @@ public class MessageThreadFragment extends IoptimeFragment {
 	ArrayList<Message> arrayThread = new ArrayList<Message>();
 	Button btSend;
 	EditText etMessage;
-	int rec_id, rec_type;
+	int rec_id, rec_type, count;
 	boolean IsStarted;
 
 	@Override
@@ -44,6 +44,7 @@ public class MessageThreadFragment extends IoptimeFragment {
 			Bundle savedInstanceState) {
 		sender_id = Integer.parseInt(getArguments().getString("sender_id"));
 		reciever_id = Integer.parseInt(getArguments().getString("reciever_id"));
+		count = getArguments().getInt("count");
 
 		View rootView = inflater.inflate(R.layout.messages_thread, container,
 				false);
@@ -245,9 +246,14 @@ public class MessageThreadFragment extends IoptimeFragment {
 			ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("reciever_id", "" + reciever_id));//
 			params.add(new BasicNameValuePair("reciever", "" + reciever));//
-
-			params.add(new BasicNameValuePair("sender_id", ""
-					+ Appconstants.user.getCustomer_id()));
+			if (count == 1) {
+				params.add(new BasicNameValuePair("sender_id", ""
+						+ Appconstants.user.getCustomer_id()));
+			}
+			else if (count == 0) {
+				params.add(new BasicNameValuePair("sender_id", ""
+						+ Appconstants.vendor.getUser_id()));
+			}
 			params.add(new BasicNameValuePair("message", ""
 					+ etMessage.getText().toString()));
 			params.add(new BasicNameValuePair("subject", ""));

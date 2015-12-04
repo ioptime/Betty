@@ -7,6 +7,33 @@ public class Product {
 	String model;
 	String image;
 	String dateAvailable;
+	String category;
+	String manufacturer;
+	int Quantity;
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getManufacturer() {
+		return manufacturer;
+	}
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+
+	public int getQuantity() {
+		return Quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		Quantity = quantity;
+	}
+
 	int status;
 	float price;
 	String dateAdded;

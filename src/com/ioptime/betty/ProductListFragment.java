@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.ioptime.adapters.ProductAdapter;
@@ -47,9 +48,10 @@ public class ProductListFragment extends IoptimeFragment {
 
 		View rootView = inflater.inflate(R.layout.product, container, false);
 		listViewProducts = (ListView) rootView.findViewById(R.id.productList);
+		TableLayout tl = (TableLayout) rootView.findViewById(R.id.tl);
 		progressDialog = (ProgressBar) rootView
 				.findViewById(R.id.productProgressBar);
-
+		tl.setVisibility(View.VISIBLE);
 		if (Appconstants.productsList.size() == 0) {
 			Log.d("pop", "size-" + Appconstants.productsList.size());
 			new ProductListBT().execute();

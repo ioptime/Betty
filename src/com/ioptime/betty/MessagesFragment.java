@@ -190,6 +190,7 @@ public class MessagesFragment extends IoptimeFragment {
 					bundle.putString("reciever_id",
 							inboxMessageArray.get(position)
 									.getMessage_customer_id());
+					bundle.putInt("count", 1);
 					messageFrag.setArguments(bundle);
 					getFragmentManager().beginTransaction()
 							.replace(R.id.frame_container, messageFrag)

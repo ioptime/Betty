@@ -1,6 +1,7 @@
 package com.iopitme.betty.vendor;
 
 import java.util.ArrayList;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -21,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.ioptime.adapters.NavDrawerListAdapter;
 import com.ioptime.betty.ProductReportsFragment;
 import com.ioptime.betty.R;
@@ -318,6 +320,16 @@ public class MainMenuVendor extends FragmentActivity {
 			}
 			cheatSheet.show();
 			return true;
+		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		Log.d("pop", "" + getFragmentManager().getBackStackEntryCount());
+		if (getFragmentManager().getBackStackEntryCount() == 0) {
+			super.onBackPressed();
+		} else {
+			getFragmentManager().popBackStack();
 		}
 	}
 }
