@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -45,6 +46,7 @@ public class MainMenu extends FragmentActivity {
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
 	TextView tvCart;
+	boolean doubleBackToExitPressedOnce;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -227,7 +229,8 @@ public class MainMenu extends FragmentActivity {
 		if (fragment != null) {
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			fragmentManager.beginTransaction()
-					.replace(R.id.frame_container, fragment).commit();
+					.replace(R.id.frame_container, fragment)
+					.addToBackStack("fragback").commit();
 
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);
@@ -325,12 +328,38 @@ public class MainMenu extends FragmentActivity {
 
 	@Override
 	public void onBackPressed() {
-		Log.d("pop", "" + getFragmentManager().getBackStackEntryCount());
-		if (getFragmentManager().getBackStackEntryCount() == 0) {
-			super.onBackPressed();
+		FragmentManager fm = getSupportFragmentManager();
+
+		if (fm.getBackStackEntryCount() > 1) {
+			fm.popBackStack();
+			
+			// super.onBackPressed();
+			// return;
 		} else {
-			getFragmentManager().popBackStack();
+			if (doubleBackToExitPressedOnce) {
+				fm.popBackStack();
+				super.onBackPressed();
+				return;
+			}
+
+			this.doubleBackToExitPressedOnce = true;
+			Toast.makeText(this, "Press one more time to exit",
+					Toast.LENGTH_SHORT).show();
+
+			new Handler().postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+
+					doubleBackToExitPressedOnce = false;
+				}
+			}, 3000);
+
 		}
 	}
-
+//	@Override
+//	public void onResume() {
+//	    super.onResume();
+//	    getActionBar().setTitle(mDrawerTitle);
+//	}
 }

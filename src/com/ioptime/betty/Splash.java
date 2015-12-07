@@ -1,5 +1,7 @@
 package com.ioptime.betty;
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 
 import org.apache.http.NameValuePair;
@@ -23,6 +25,7 @@ public class Splash extends IoptimeActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Fabric.with(this, new Crashlytics());
 		if (isConnectedToInternet(Splash.this)) {
 			new CategoryListBT().execute();
 		} else {

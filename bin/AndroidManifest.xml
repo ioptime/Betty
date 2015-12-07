@@ -1,69 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ioptime.betty"
-    android:versionCode="1"
-    android:versionName="1.0" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.ioptime.betty">
 
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="21" />
+    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="21"/>
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Bettystyle" >
-        <activity
-            android:name=".Splash"
-            android:label="@string/app_name" >
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/Theme.Bettystyle">
+        <activity android:label="@string/app_name" android:name="com.ioptime.betty.Splash">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Login" >
+        <activity android:name="com.ioptime.betty.Login">
         </activity>
-        <activity android:name=".MainActivity" >
+        <activity android:name="com.ioptime.betty.MainActivity">
         </activity>
-        <activity android:name=".SignUp" >
+        <activity android:name="com.ioptime.betty.SignUp">
         </activity>
-        <activity
-            android:name=".MainMenu"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait" >
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:name="com.ioptime.betty.MainMenu" android:screenOrientation="portrait">
         </activity>
-        <activity
-            android:name="com.iopitme.betty.vendor.MainMenuVendor"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait" >
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:name="com.iopitme.betty.vendor.MainMenuVendor" android:screenOrientation="portrait">
         </activity>
-        <activity
-            android:name="com.iopitme.betty.vendor.AddNewProductFragment"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_add_new_product_fragment"
-            android:screenOrientation="portrait" >
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/title_activity_add_new_product_fragment" android:name="com.iopitme.betty.vendor.AddNewProductFragment" android:screenOrientation="portrait">
         </activity>
-        <activity android:name="com.ioptime.selectimages.CustomGalleryActivity" >
+        <activity android:name="com.ioptime.selectimages.CustomGalleryActivity">
             <intent-filter>
-                <action android:name="luminous.ACTION_PICK" />
-                <action android:name="luminous.ACTION_MULTIPLE_PICK" />
+                <action android:name="luminous.ACTION_PICK"/>
+                <action android:name="luminous.ACTION_MULTIPLE_PICK"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ProductReportsFragment"
-            android:label="@string/title_activity_product_reports_fragment" >
+        <activity android:label="@string/title_activity_product_reports_fragment" android:name="com.ioptime.betty.ProductReportsFragment" android:screenOrientation="portrait">
         </activity>
+
+        <meta-data android:name="io.fabric.ApiKey" android:value="de002f4a89c823361e1bad9135c4fd99fcd94b16"/>
     </application>
 
 </manifest>

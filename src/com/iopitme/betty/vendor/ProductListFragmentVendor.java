@@ -452,4 +452,10 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 		FragmentManager fm = getActivity().getSupportFragmentManager();
 		fm.popBackStack();
 	}
+
+//	@Override
+//	public void onResume() {
+//		super.onResume();
+//		((MainMenuVendor) getActivity()).getActionBar().setTitle("Home");
+//	}
 }
