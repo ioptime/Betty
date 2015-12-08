@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.adapters.CartAdapter;
 import com.ioptime.betty.model.Cart;
 import com.ioptime.extendablelibrary.IoptimeFragment;
@@ -40,4 +41,9 @@ public class CartFragment extends IoptimeFragment {
 		}
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenu) getActivity()).getActionBar().setTitle("Cart");
+	}
 }

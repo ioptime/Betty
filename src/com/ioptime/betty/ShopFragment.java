@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.adapters.ShopAdapter;
 import com.ioptime.betty.model.Product;
 import com.ioptime.betty.model.Shops;
@@ -300,5 +301,9 @@ public class ShopFragment extends IoptimeFragment {
 
 		}
 	}
-
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenu) getActivity()).getActionBar().setTitle("Shop");
+	}
 }

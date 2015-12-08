@@ -61,7 +61,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProductReportsFragment"
+            android:name="com.iopitme.betty.vendor.ProductReportsFragment"
             android:label="@string/title_activity_product_reports_fragment"
             android:screenOrientation="portrait" >
         </activity>

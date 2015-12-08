@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.extendablelibrary.IoptimeFragment;
 
 
@@ -40,4 +41,9 @@ public class ProfileFragment extends IoptimeFragment {
 	
 	 return rootView;
 	 }
+	 @Override
+		public void onResume() {
+			super.onResume();
+			((MainMenu) getActivity()).getActionBar().setTitle("Profile");
+		}
 }

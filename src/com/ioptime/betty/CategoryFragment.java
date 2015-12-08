@@ -9,6 +9,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.adapters.CategoryAdapter;
 import com.ioptime.extendablelibrary.IoptimeFragment;
 
@@ -54,5 +55,9 @@ public class CategoryFragment extends IoptimeFragment {
 					Toast.LENGTH_LONG).show();
 		}
 	}
-
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenu) getActivity()).getActionBar().setTitle("Categories");
+	}
 }

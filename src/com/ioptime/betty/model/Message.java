@@ -3,6 +3,15 @@ package com.ioptime.betty.model;
 public class Message {
 	int message_id;
 	int message_to;
+	String senderName;
+
+	public String getSenderName() {
+		return senderName;
+	}
+
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
 
 	public int getMessage_id() {
 		return message_id;
@@ -32,7 +41,7 @@ public class Message {
 			int transfer_status, int transfer_message_id, String attachment,
 			int content_id, String content, int is_user, int sender_id,
 			int reply_status, int message_read_customer,
-			int message_read_support, String created, String file) {
+			int message_read_support, String created, String file,String senderName) {
 		super();
 		this.message_id = message_id;
 		this.message_to = message_to;
@@ -40,6 +49,7 @@ public class Message {
 		this.message_status = message_status;
 		this.group_message = group_message;
 		this.group_message_id = group_message_id;
+		this.senderName=senderName;
 		try {
 			// parsing date to date and time
 			String dateTime[] = message_created_date.split(" ");

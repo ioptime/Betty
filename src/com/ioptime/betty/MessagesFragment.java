@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.adapters.MessageInboxAdapter;
 import com.ioptime.betty.model.Message;
 import com.ioptime.extendablelibrary.IoptimeFragment;
@@ -150,7 +151,8 @@ public class MessagesFragment extends IoptimeFragment {
 								Integer.parseInt(json_data.getString(
 										"message_read_support").trim()),
 								json_data.getString("created"), json_data
-										.getString("file")));
+										.getString("file"),json_data
+										.getString("username")));
 					}
 
 				}
@@ -239,4 +241,9 @@ public class MessagesFragment extends IoptimeFragment {
 		}
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenu) getActivity()).getActionBar().setTitle("Messages");
+	}
 }

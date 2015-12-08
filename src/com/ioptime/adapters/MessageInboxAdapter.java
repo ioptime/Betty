@@ -52,8 +52,8 @@ public class MessageInboxAdapter extends BaseAdapter {
 		TextView textMessage = (TextView) vi.findViewById(R.id.inboxTVMessage);
 		TextView textHeading = (TextView) vi.findViewById(R.id.inboxTVHeading);
 
-		textMessage.setText(messageArray.get(position).getContent());
-		textHeading.setText(messageArray.get(position).getMessage_subject());
+		textMessage.setText(messageArray.get(position).getMessage_subject());
+		textHeading.setText(messageArray.get(position).getSenderName());
 		return vi;
 	}
 }

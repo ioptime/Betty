@@ -225,4 +225,10 @@ public class AddNewProductFragment extends IoptimeFragment {
 		alertDialog.show();
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenuVendor) getActivity()).getActionBar().setTitle(
+				"Add New Products");
+	}
 }

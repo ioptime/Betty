@@ -154,7 +154,8 @@ public class MessagesVendorFragment extends IoptimeFragment {
 								Integer.parseInt(json_data.getString(
 										"message_read_support").trim()),
 								json_data.getString("created"), json_data
-										.getString("file")));
+										.getString("file"), json_data
+										.getString("username")));
 					}
 
 				}
@@ -242,15 +243,16 @@ public class MessagesVendorFragment extends IoptimeFragment {
 					+ ")".trim());
 		}
 	}
+
 	@Override
-	public void onBackPressed()
-	{
-	    FragmentManager fm = getActivity().getSupportFragmentManager();
-	    fm.popBackStack();
+	public void onBackPressed() {
+		FragmentManager fm = getActivity().getSupportFragmentManager();
+		fm.popBackStack();
 	}
-//	@Override
-//	public void onResume() {
-//	    super.onResume();
-//	    ((MainMenuVendor)getActivity()).getActionBar().setTitle("Home");
-//	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenuVendor) getActivity()).getActionBar().setTitle("Messages");
+	}
 }

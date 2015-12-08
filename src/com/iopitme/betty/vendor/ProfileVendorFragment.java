@@ -40,4 +40,10 @@ public class ProfileVendorFragment extends IoptimeFragment {
 
 		return rootView;
 	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenuVendor) getActivity()).getActionBar().setTitle("Profile");
+	}
 }

@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.betty.model.Product;
 import com.ioptime.betty.model.User;
 import com.ioptime.extendablelibrary.IoptimeFragment;
@@ -190,5 +191,9 @@ public class ProfileEditFragment extends IoptimeFragment {
 		}
 
 	}
-
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenu) getActivity()).getActionBar().setTitle("Profile");
+	}
 }

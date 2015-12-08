@@ -1,7 +1,10 @@
-package com.ioptime.betty;
+package com.iopitme.betty.vendor;
 
 import java.util.ArrayList;
 
+import com.ioptime.betty.R;
+import com.ioptime.betty.R.id;
+import com.ioptime.betty.R.layout;
 import com.ioptime.betty.model.ProductReportsModel;
 import com.ioptime.extendablelibrary.IoptimeFragment;
 import com.ioptime.vendor.adapters.ProductReportsAdapter;
@@ -40,5 +43,12 @@ public class ProductReportsFragment extends IoptimeFragment {
 				getActivity(), pdata);
 		pRecordsLV.setAdapter(adapter);
 		return rootView;
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenuVendor) getActivity()).getActionBar().setTitle(
+				"Products Report");
 	}
 }

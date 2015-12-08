@@ -453,9 +453,9 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 		fm.popBackStack();
 	}
 
-//	@Override
-//	public void onResume() {
-//		super.onResume();
-//		((MainMenuVendor) getActivity()).getActionBar().setTitle("Home");
-//	}
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenuVendor) getActivity()).getActionBar().setTitle("Products");
+	}
 }

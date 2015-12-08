@@ -148,6 +148,7 @@ public class MessageThreadFragment extends IoptimeFragment {
 								Integer.parseInt(json_data.getString(
 										"message_read_support").trim()),
 								json_data.getString("created"), json_data
+										.getString("file"),json_data
 										.getString("file")));
 
 						Log.d("receiver", "-use id"

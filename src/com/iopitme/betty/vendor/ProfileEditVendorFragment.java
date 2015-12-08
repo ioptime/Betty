@@ -179,4 +179,10 @@ public class ProfileEditVendorFragment extends IoptimeFragment {
 
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenuVendor) getActivity()).getActionBar().setTitle("Profile");
+	}
+
 }

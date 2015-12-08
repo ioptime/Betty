@@ -25,7 +25,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ioptime.adapters.NavDrawerListAdapter;
-import com.ioptime.betty.ProductReportsFragment;
 import com.ioptime.betty.R;
 import com.ioptime.betty.model.NavDrawerItem;
 

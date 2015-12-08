@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.adapters.ProductAdapter;
 import com.ioptime.betty.model.Product;
 import com.ioptime.extendablelibrary.IoptimeFragment;
@@ -400,5 +401,9 @@ public class ProductListFragment extends IoptimeFragment {
 		}
 
 	}
-
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenu) getActivity()).getActionBar().setTitle("Products");
+	}
 }

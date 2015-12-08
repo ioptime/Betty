@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.iopitme.betty.vendor.MainMenuVendor;
 import com.ioptime.adapters.BlogAdapter;
 import com.ioptime.betty.model.Blog;
 import com.ioptime.betty.model.Product;
@@ -268,4 +269,9 @@ public class BlogFragment extends IoptimeFragment {
 		}
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		((MainMenu) getActivity()).getActionBar().setTitle("Blog");
+	}
 }
