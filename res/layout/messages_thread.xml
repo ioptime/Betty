@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:background="#ccc"
             android:divider="#ccc"
+            android:scrollbars="none"
             android:dividerHeight="10dip"
             android:paddingBottom="5dip"
             android:paddingLeft="10dip"

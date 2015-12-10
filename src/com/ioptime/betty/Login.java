@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -42,6 +43,24 @@ public class Login extends IoptimeActivity {
 		editTextArray.add(etEmail);
 
 		tbCustOrVend = (ToggleButton) findViewById(R.id.loginTBCustOrVend);
+		tbCustOrVend.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (tbCustOrVend.getText().toString()
+						.equalsIgnoreCase("Customer")){
+					etPass.setText("qwert");
+					etEmail.setText("mharoon");
+				}
+				if (tbCustOrVend.getText().toString()
+						.equalsIgnoreCase("Vendor")){
+					etPass.setText("123456");
+					etEmail.setText("rasheed");
+				}
+			}
+		});
+		
 
 	}
 

@@ -156,7 +156,7 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 		protected Void doInBackground(Void... arg0) {
 			try {
 				ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-				nameValuePairs.add(new BasicNameValuePair("user_id", "185"));
+				nameValuePairs.add(new BasicNameValuePair("user_id", ""+Appconstants.vendor.getUser_id()));
 				result = "";
 				result = getJSONfromURL(Appconstants.Server
 						+ "products_get_vendor.php", nameValuePairs, 0);
@@ -269,14 +269,14 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 			try {
 
 				ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("timestamp", ""
-						+ System.currentTimeMillis()));
+				params.add(new BasicNameValuePair("user_id", ""
+						+ Appconstants.vendor.getUser_id()));
 				params.add(new BasicNameValuePair("search", "" + search));
 
 				//
 				result = "";
 				result = getJSONfromURL(Appconstants.Server
-						+ "products_search.php", params, 0);
+						+ "products_search_vendor.php", params, 0);
 				Log.d("result", "--" + result);
 				if (result.equalsIgnoreCase("") | result.contains("empty")
 						| result.contains("err")) {
