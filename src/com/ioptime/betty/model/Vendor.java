@@ -8,6 +8,15 @@ public class Vendor {
 	String telephone;
 	String topic;
 	String logoURl;
+	String userName;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getLogoURl() {
 		return logoURl;
@@ -21,7 +30,7 @@ public class Vendor {
 	}
 
 	public Vendor(int user_id, String firstname, String lastname, String email,
-			String telephone, String topic, String logoURl) {
+			String telephone, String topic, String logoURl, String userName) {
 		super();
 		this.user_id = user_id;
 		this.firstname = firstname;
@@ -30,6 +39,7 @@ public class Vendor {
 		this.telephone = telephone;
 		this.topic = topic;
 		this.logoURl = logoURl;
+		this.userName = userName;
 
 	}
 

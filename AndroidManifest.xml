@@ -65,10 +65,18 @@
             android:label="@string/title_activity_product_reports_fragment"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.iopitme.betty.ProfileEditFragment"
+            android:label="@string/title_activity_product_reports_fragment"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="de002f4a89c823361e1bad9135c4fd99fcd94b16" />
+
+        <activity android:name=".TermsActivity" >
+        </activity>
     </application>
 
 </manifest>

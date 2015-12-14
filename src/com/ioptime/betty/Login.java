@@ -44,23 +44,22 @@ public class Login extends IoptimeActivity {
 
 		tbCustOrVend = (ToggleButton) findViewById(R.id.loginTBCustOrVend);
 		tbCustOrVend.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				if (tbCustOrVend.getText().toString()
-						.equalsIgnoreCase("Customer")){
+						.equalsIgnoreCase("Customer")) {
 					etPass.setText("qwert");
 					etEmail.setText("mharoon");
 				}
 				if (tbCustOrVend.getText().toString()
-						.equalsIgnoreCase("Vendor")){
+						.equalsIgnoreCase("Vendor")) {
 					etPass.setText("123456");
 					etEmail.setText("rasheed");
 				}
 			}
 		});
-		
 
 	}
 
@@ -225,9 +224,9 @@ public class Login extends IoptimeActivity {
 				String result = "";
 				result = getJSONfromURL(Appconstants.Server
 						+ "login_vendor_admin.php", nameValuePairs, 0);
-				Log.d("result", "--" + result);
-				if (result.equalsIgnoreCase("") | result.contains("empty")
-						| result.contains("err")) {
+				Log.d("result", "--Vender--" + result);
+				if (result.equalsIgnoreCase("")
+						| result.equalsIgnoreCase("empty")) {
 					// not valid
 					Appconstants.vendor = new Vendor();
 					Appconstants.vendor.setUser_id(0);
@@ -244,7 +243,12 @@ public class Login extends IoptimeActivity {
 								json_data.getString("email").trim(), json_data
 										.getString("telephone").trim(),
 								json_data.getString("topic").trim(), json_data
-										.getString("vendor_image").trim());
+										.getString("vendor_image").trim(),
+								json_data.getString("username".trim()));
+						Log.d("vederID",
+								""
+										+ Integer.parseInt(json_data.getString(
+												"user_id").trim()));
 
 					}
 
@@ -262,6 +266,7 @@ public class Login extends IoptimeActivity {
 			if (progressDialog.isShowing()) {
 				progressDialog.cancel();
 			}
+
 			if (Appconstants.vendor.getUser_id() != 0) {
 				savePref(Appconstants.vendor.getUser_id());
 				Toast.makeText(getApplicationContext(), "Successful login",

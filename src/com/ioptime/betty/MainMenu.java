@@ -3,6 +3,7 @@ package com.ioptime.betty;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
@@ -332,7 +333,7 @@ public class MainMenu extends FragmentActivity {
 
 		if (fm.getBackStackEntryCount() > 1) {
 			fm.popBackStack();
-			
+
 			// super.onBackPressed();
 			// return;
 		} else {
@@ -356,10 +357,13 @@ public class MainMenu extends FragmentActivity {
 			}, 3000);
 
 		}
+
 	}
-//	@Override
-//	public void onResume() {
-//	    super.onResume();
-//	    getActionBar().setTitle(mDrawerTitle);
-//	}
+
+	// @Override
+	// public void onResume() {
+	// super.onResume();
+	// getActionBar().setTitle(mDrawerTitle);
+	// }
+
 }

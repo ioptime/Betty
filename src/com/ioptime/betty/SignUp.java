@@ -33,6 +33,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -61,6 +62,16 @@ public class SignUp extends IoptimeActivity {
 		super.onCreate(savedInstanceState);
 		countrySpinner = (Spinner) findViewById(R.id.signSpinnerCountry);
 		ivProfile = (ImageView) findViewById(R.id.signupIVPic);
+		TextView link = (TextView) findViewById(R.id.linkTV);
+		link.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(SignUp.this, TermsActivity.class);
+				startActivity(intent);
+			}
+		});
 		if (savedInstanceState != null) {
 			Appconstants.worldlist = savedInstanceState
 					.getStringArrayList("countries");
@@ -87,6 +98,7 @@ public class SignUp extends IoptimeActivity {
 							int position, long arg3) {
 						// TODO Auto-generated method stub
 						// Locate the textviews in activity_main.xml
+						if(arg0!=null)
 						((TextView) arg0.getChildAt(0)).setTextColor(Color.rgb(
 								0, 0, 0));
 					}

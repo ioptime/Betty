@@ -50,5 +50,7 @@
 
     <string name="title_activity_add_new_product_fragment">Add New Product</string>
     <string name="title_activity_product_reports_fragment">ProductReportsFragment</string>
+    <string name="title_activity_terms">TermsActivity</string>
+    <string name="link"><u>Terms</u>.</string>
 
 </resources>

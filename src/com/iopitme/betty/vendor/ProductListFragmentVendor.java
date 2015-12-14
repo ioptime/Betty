@@ -72,7 +72,7 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 				+ Appconstants.vendor.getLogoURl(), StoreLogoIV,
 				ImageLoader.NORMAL);
 		// Set Vendor Description /
-		if (!Appconstants.vendor.getTopic().equalsIgnoreCase(""))
+
 			StoreDecTV.setText(Appconstants.vendor.getTopic());
 		// Set Followers
 		new VendorFollowersBTTask().execute();
@@ -226,15 +226,6 @@ public class ProductListFragmentVendor extends IoptimeFragment {
 							@Override
 							public void onItemClick(AdapterView<?> parent,
 									View view, int position, long id) {
-								// ProductDetailFragmentVendor prodFrag = new
-								// ProductDetailFragmentVendor();
-								// Bundle bundle = new Bundle();
-								// bundle.putInt("position", position);
-								// prodFrag.setArguments(bundle);
-								// getFragmentManager()
-								// .beginTransaction()
-								// .replace(R.id.frame_container, prodFrag)
-								// .addToBackStack(null).commit();
 								AddNewProductFragment prodFrag = new AddNewProductFragment();
 								Bundle bundle = new Bundle();
 								bundle.putInt("position", position);

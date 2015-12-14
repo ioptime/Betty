@@ -327,12 +327,6 @@ public class MainMenuVendor extends FragmentActivity {
 
 	@Override
 	public void onBackPressed() {
-		// Log.d("pop", "" + getFragmentManager().getBackStackEntryCount());
-		// if (getFragmentManager().getBackStackEntryCount() == 0) {
-		// super.onBackPressed();
-		// } else {
-		// getFragmentManager().popBackStack();
-		// }
 
 		FragmentManager fm = getSupportFragmentManager();
 
@@ -363,5 +357,5 @@ public class MainMenuVendor extends FragmentActivity {
 
 		}
 	}
-	
+
 }
